@@ -1,0 +1,185 @@
+:root {
+  color-scheme: light;
+  --ink: #14213D;
+  --indigo-deep: #0F2039;
+  --marigold: #E8A33D;
+  --marigold-deep: #C9821F;
+  --paper: #F4F5F7;
+  --paper-white: #FFFFFF;
+  --pill-fill: #F1F2F5;
+  --slate: #6B7280;
+  --line: #E2E5EA;
+  --red: #B0463F;
+}
+
+* { box-sizing: border-box; }
+
+html, body, #root {
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
+  max-width: none !important;
+  min-height: 100% !important;
+  text-align: left !important;
+}
+
+.auth-screen {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--paper);
+  background-image:
+    radial-gradient(circle at 12% 15%, rgba(29, 52, 97, 0.06), transparent 40%),
+    radial-gradient(circle at 88% 85%, rgba(232, 163, 61, 0.10), transparent 40%);
+  padding: 32px 20px;
+  font-family: 'Inter', -apple-system, sans-serif;
+  color: var(--ink);
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 440px;
+  background: var(--paper-white);
+  border-radius: 24px;
+  box-shadow: 0 20px 50px rgba(15, 32, 57, 0.10);
+  padding: 44px 40px;
+}
+
+.auth-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 26px;
+}
+.auth-logo .mark {
+  width: 34px; height: 34px; border-radius: 9px;
+  background: var(--indigo-deep);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.auth-logo .name { font-weight: 700; font-size: 1.05rem; letter-spacing: -0.01em; display: block; }
+.auth-logo .tag { font-size: 0.72rem; color: var(--slate); font-weight: 500; }
+
+.auth-card h1 {
+  font-size: 1.9rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 8px;
+  color: var(--ink) !important;
+}
+
+.auth-card p.sub {
+  font-size: 0.9rem;
+  color: var(--slate);
+  line-height: 1.5;
+  margin-bottom: 26px;
+}
+
+.staff-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(232, 163, 61, 0.14);
+  color: #8A5A17;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 999px;
+  margin-bottom: 14px;
+}
+
+/* Compound pill field: small label stacked above the value */
+.field-pill {
+  background: var(--pill-fill);
+  border-radius: 999px;
+  padding: 9px 22px;
+  margin-bottom: 14px;
+  border: 1px solid transparent;
+  transition: border-color 0.15s;
+  position: relative;
+}
+.field-pill:focus-within { border-color: var(--indigo-deep); }
+.field-pill label { display: block; font-size: 0.7rem; color: var(--slate); margin-bottom: 1px; }
+.field-pill input {
+  width: 100%;
+  border: none;
+  background: transparent;
+  outline: none;
+  font-size: 0.94rem;
+  color: var(--ink);
+  font-family: inherit;
+  padding: 0;
+  padding-right: 28px;
+}
+.field-pill input::placeholder { color: #AAAFB9; }
+
+.pill-toggle {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  padding: 4px;
+  color: var(--slate);
+  display: flex;
+  cursor: pointer;
+}
+.pill-toggle:hover { color: var(--ink); }
+
+.row-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 18px 0 26px;
+  font-size: 0.83rem;
+}
+.checkline { display: flex; align-items: center; gap: 7px; color: var(--slate); }
+.checkline input { accent-color: var(--indigo-deep); }
+.row-between a { color: var(--ink); font-weight: 600; text-decoration: underline; }
+
+.form-error {
+  background: rgba(176, 70, 63, 0.08);
+  color: var(--red);
+  border: 1px solid rgba(176, 70, 63, 0.22);
+  padding: 9px 14px;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  margin-bottom: 16px;
+}
+
+.btn-pill {
+  width: 100%;
+  background: var(--marigold);
+  color: var(--indigo-deep);
+  border: none;
+  padding: 14px 0;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background 0.15s, transform 0.1s;
+}
+.btn-pill:hover { background: var(--marigold-deep); }
+.btn-pill:active { transform: scale(0.99); }
+.btn-pill:disabled { opacity: 0.6; cursor: not-allowed; }
+
+.foot-line {
+  text-align: center;
+  font-size: 0.87rem;
+  color: var(--slate);
+  margin-top: 22px;
+}
+.foot-line a { color: var(--indigo-deep); font-weight: 700; text-decoration: none; }
+.foot-line a:hover { text-decoration: underline; }
+
+/* Browser autofill override so autofilled fields keep the pill look */
+.field-pill input:-webkit-autofill,
+.field-pill input:-webkit-autofill:hover,
+.field-pill input:-webkit-autofill:focus {
+  -webkit-text-fill-color: var(--ink);
+  box-shadow: 0 0 0 1000px var(--pill-fill) inset;
+  transition: background-color 9999s ease-in-out 0s;
+}

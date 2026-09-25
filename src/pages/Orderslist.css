@@ -1,0 +1,163 @@
+:root {
+  --ink: #14213D;
+  --indigo-deep: #0F2039;
+  --indigo: #1D3461;
+  --marigold: #E8A33D;
+  --paper: #F4F5F7;
+  --paper-white: #FFFFFF;
+  --slate: #6B7280;
+  --line: #E2E5EA;
+  --green: #1F8A5C;
+  --amber: #B8790B;
+  --red: #C0392B;
+  --blue: #2D5FD0;
+}
+
+* { box-sizing: border-box; }
+
+html, body, #root {
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
+  max-width: none !important;
+  min-height: 100% !important;
+  text-align: left !important;
+}
+
+.ol-page {
+  min-height: 100vh;
+  width: 100%;
+  background: var(--paper);
+  font-family: 'Inter', -apple-system, sans-serif;
+  color: var(--ink);
+}
+
+.ol-header {
+  background: var(--paper-white);
+  border-bottom: 1px solid var(--line);
+  padding: 0 28px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.ol-header .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 1rem; }
+.ol-header .brand .mark {
+  width: 28px; height: 28px; border-radius: 7px; background: var(--indigo-deep);
+  display: flex; align-items: center; justify-content: center;
+}
+.ol-header .user-row { display: flex; align-items: center; gap: 14px; font-size: 0.84rem; color: var(--slate); }
+.ol-header .user-row strong { color: var(--ink); }
+.btn-logout {
+  background: transparent; border: 1px solid var(--line); padding: 6px 13px; border-radius: 7px;
+  font-size: 0.8rem; font-weight: 600; color: var(--ink); cursor: pointer;
+}
+.btn-logout:hover { border-color: var(--indigo-deep); }
+
+.ol-body { max-width: 1320px; margin: 0 auto; padding: 22px 24px 60px; }
+
+/* ---------- Stat strip ---------- */
+.stat-strip {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  background: var(--paper-white);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  margin-bottom: 18px;
+  overflow: hidden;
+}
+.stat-cell { padding: 14px 20px; border-right: 1px solid var(--line); }
+.stat-cell:last-child { border-right: none; }
+.stat-cell .label { font-size: 0.68rem; font-weight: 700; color: var(--slate); letter-spacing: 0.04em; margin-bottom: 6px; }
+.stat-cell .value { font-size: 1.35rem; font-weight: 800; letter-spacing: -0.01em; }
+.stat-cell.blue .value { color: var(--blue); }
+.stat-cell.red .value { color: var(--red); }
+.stat-cell.amber .value { color: var(--amber); }
+@media (max-width: 960px) { .stat-strip { grid-template-columns: repeat(2, 1fr); } .stat-cell { border-bottom: 1px solid var(--line); } }
+
+/* ---------- Filter bar ---------- */
+.filter-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+.filter-bar .date-field { display: flex; align-items: center; gap: 6px; font-size: 0.82rem; color: var(--slate); }
+.filter-bar input[type="date"] {
+  border: 1px solid var(--line); border-radius: 8px; padding: 7px 10px; font-size: 0.82rem;
+  font-family: inherit; color: var(--ink); background: var(--paper-white);
+}
+.btn-show {
+  background: var(--indigo-deep); color: #fff; border: none; padding: 8px 18px; border-radius: 8px;
+  font-size: 0.82rem; font-weight: 700; cursor: pointer;
+}
+.btn-show:hover { background: var(--indigo); }
+.search-input {
+  flex: 1; min-width: 220px; border: 1px solid var(--line); border-radius: 8px; padding: 8px 14px;
+  font-size: 0.85rem; font-family: inherit; color: var(--ink); background: var(--paper-white);
+}
+.select-field {
+  border: 1px solid var(--line); border-radius: 8px; padding: 8px 12px; font-size: 0.82rem;
+  font-family: inherit; color: var(--ink); background: var(--paper-white);
+}
+.chip-row { display: flex; gap: 6px; }
+.chip-btn {
+  border: 1px solid var(--line); background: var(--paper-white); padding: 7px 13px; border-radius: 999px;
+  font-size: 0.79rem; font-weight: 600; color: var(--slate); cursor: pointer; white-space: nowrap;
+}
+.chip-btn.active { background: var(--indigo-deep); color: #fff; border-color: var(--indigo-deep); }
+
+/* ---------- Table ---------- */
+.orders-table { background: var(--paper-white); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
+.o-row {
+  display: grid;
+  grid-template-columns: 1.1fr 1.5fr 1fr 0.9fr 1.3fr 0.8fr 1.2fr;
+  align-items: center;
+  padding: 13px 20px;
+  gap: 10px;
+  border-bottom: 1px solid var(--line);
+  font-size: 0.85rem;
+}
+.o-row:last-child { border-bottom: none; }
+.o-row.head {
+  background: var(--paper); font-size: 0.68rem; font-weight: 700; color: var(--slate);
+  text-transform: uppercase; letter-spacing: 0.04em; padding: 10px 20px;
+}
+.o-row .order-num { font-weight: 700; }
+.o-row .sub { color: var(--slate); font-size: 0.76rem; margin-top: 1px; }
+
+.pay-badge, .status-pill {
+  display: inline-flex; align-items: center; gap: 4px; font-size: 0.72rem; font-weight: 700;
+  padding: 2px 9px; border-radius: 999px;
+}
+.pay-badge.paid { background: rgba(31, 138, 92, 0.12); color: var(--green); }
+.pay-badge.pending { background: rgba(184, 121, 11, 0.14); color: var(--amber); }
+.pay-badge::before { content: '●'; font-size: 0.6rem; }
+
+.mode-chip {
+  display: inline-block; font-size: 0.68rem; font-weight: 700; color: var(--slate);
+  border: 1px solid var(--line); padding: 1px 8px; border-radius: 6px; margin-left: 6px;
+}
+
+.status-pill.new { background: rgba(45, 95, 208, 0.1); color: var(--blue); }
+.status-pill.converted { background: rgba(31, 138, 92, 0.12); color: var(--green); }
+.status-pill.error { background: rgba(192, 57, 43, 0.1); color: var(--red); }
+.status-pill.cancelled { background: var(--paper); color: var(--slate); }
+.status-pill::before { content: '●'; font-size: 0.6rem; }
+
+.btn-convert {
+  background: var(--indigo-deep); color: #fff; border: none; padding: 8px 16px; border-radius: 8px;
+  font-size: 0.8rem; font-weight: 700; cursor: pointer; white-space: nowrap;
+}
+.btn-convert:hover { background: var(--indigo); }
+
+.loading-state, .empty-state, .error-state {
+  padding: 48px 20px; text-align: center; color: var(--slate); font-size: 0.9rem;
+}
+.error-state { color: var(--red); }
+
+@media (max-width: 1000px) {
+  .o-row { grid-template-columns: 1fr; gap: 4px; }
+  .o-row.head { display: none; }
+}
