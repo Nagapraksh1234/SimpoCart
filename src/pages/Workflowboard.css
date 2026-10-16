@@ -1,0 +1,59 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&display=swap");
+
+.wb-app{font-family:'IBM Plex Sans',Arial,sans-serif;background:#EEF1F4;color:#151B26;min-height:100vh;font-size:14px}
+.wb-app *{box-sizing:border-box}
+.wb-top{display:flex;align-items:center;gap:24px;padding:0 24px;min-height:64px;background:#fff;border-bottom:1px solid #D9DEE6;flex-wrap:wrap}
+.wb-logo{font-weight:600;font-size:18px}
+.wb-nav{display:flex;gap:4px}
+.wb-nav span{padding:8px 12px;border-radius:6px;color:#5B6577;cursor:pointer}
+.wb-nav .wb-on{background:#E6ECFB;color:#1D3FA8;font-weight:600}
+.wb-search{flex:1;min-width:200px;max-width:380px;height:44px;border:1px solid #D9DEE6;border-radius:6px;padding:0 12px;font:14px 'IBM Plex Sans',Arial,sans-serif}
+
+.wb-btn{border:0;border-radius:6px;padding:10px 14px;font:600 13px 'IBM Plex Sans',Arial,sans-serif;background:#1D4ED8;color:#fff;min-height:44px;cursor:pointer}
+.wb-btn.wb-alt{background:#fff;color:#1D3FA8;border:1px solid #B9C5E6}
+.wb-sm{padding:8px 12px}
+
+.wb-strip{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;padding:20px 24px 0}
+.wb-step{background:#fff;border:1px solid #D9DEE6;border-radius:8px;padding:12px 14px}
+.wb-step b{font-size:22px}
+.wb-step small{color:#5B6577;display:block}
+
+.wb-board{display:grid;grid-template-columns:repeat(5,minmax(220px,1fr));gap:12px;padding:16px 24px 24px;overflow-x:auto}
+.wb-col{background:#E3E8EE;border-radius:8px;padding:10px;display:flex;flex-direction:column;gap:10px;align-self:start}
+.wb-ch{display:flex;justify-content:space-between;align-items:center;font-weight:600;padding:4px 4px 2px}
+.wb-dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:8px}
+
+.wb-card{background:#fff;border:1px solid #D9DEE6;border-radius:8px;padding:12px;display:flex;flex-direction:column;gap:8px}
+.wb-row{display:flex;justify-content:space-between;gap:8px;align-items:center}
+.wb-name{font-weight:600}
+.wb-muted{color:#5B6577;font-size:13px}
+
+.wb-chip{display:inline-block;padding:2px 8px;border-radius:99px;font-size:12px;font-weight:600;white-space:nowrap}
+.wb-amber{background:#FDE9C8;color:#7A3A06}
+.wb-blue{background:#DCE6FB;color:#1D3FA8}
+.wb-green{background:#D3F0DD;color:#0E5A2B}
+.wb-red{background:#F9D9D9;color:#8A1C1C}
+.wb-gray{background:#E8EBF0;color:#3B4556}
+
+@media (max-width: 900px){
+  .wb-strip{grid-template-columns:repeat(2,1fr)}
+}
+
+/* ---- dynamic additions ---- */
+.wb-btns{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
+.wb-empty{color:#5B6577;font-size:13px;padding:8px 4px}
+.wb-banner{margin:12px 24px 0;padding:10px 14px;border-radius:6px;background:#F9D9D9;color:#8A1C1C;font-weight:500}
+.wb-link{background:none;border:0;color:#1D3FA8;font-weight:600;cursor:pointer;text-decoration:underline}
+
+.wb-overlay{position:fixed;inset:0;background:rgba(21,27,38,.5);display:flex;align-items:center;justify-content:center;padding:16px;z-index:50}
+.wb-modal{background:#fff;border-radius:10px;padding:20px;width:100%;max-width:560px;max-height:90vh;overflow:auto;display:flex;flex-direction:column;gap:12px}
+.wb-modal h2{margin:0;font-size:18px}
+.wb-field{display:flex;flex-direction:column;gap:4px;flex:1;min-width:0}
+.wb-field span{font-size:13px;color:#5B6577}
+.wb-field input,.wb-field select{height:44px;border:1px solid #C5CCD8;border-radius:6px;padding:0 10px;font:14px 'IBM Plex Sans',Arial,sans-serif;background:#fff;color:#151B26}
+.wb-form-row{display:flex;gap:10px;align-items:flex-end;flex-wrap:wrap}
+.wb-item{padding-bottom:10px;border-bottom:1px solid #E3E8EE}
+.wb-total{font-weight:600;text-align:right}
+.wb-error{background:#F9D9D9;color:#8A1C1C;padding:8px 12px;border-radius:6px;font-size:13px}
+.wb-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:4px}
+.wb-btn:disabled{opacity:.6;cursor:default}
