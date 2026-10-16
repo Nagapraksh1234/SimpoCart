@@ -1,6 +1,8 @@
+import type { Key } from "react"
+
 export type PaymentMode = 'ONLINE' | 'CARD' | 'UPI' | 'COD' | 'BANK_TRANSFER'
 export type PaymentStatus = 'paid' | 'pending'
-export type OrderStatus = 'new' | 'converted' | 'error' | 'cancelled'
+export type OrderStatus = 'new' | 'converted' | 'error' | 'cancelled' | 'pending_review' | 'rejected'
 
 export interface OrderItem {
   sku: string
@@ -40,6 +42,10 @@ export interface HistoryEvent {
 }
 
 export interface Order {
+  customerId: any
+  externalCustomerCode: any
+  _id: Key | null | undefined
+  createdAt: string | number | Date
   id: string
   orderNumber: string
   placedAt: string

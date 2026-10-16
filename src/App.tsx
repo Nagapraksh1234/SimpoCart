@@ -4,6 +4,7 @@ import Login from './pages/Login'
 import Signup from './pages/Signup'
 import OrdersList from './pages/OrdersList'
 import OrderDetail from './pages/OrderDetail'
+import WorkflowBoard from './pages/Workflowboard'
 import { getToken } from './services/authService'
 import './App.css'
 
@@ -34,6 +35,14 @@ function App() {
           element={
             <ProtectedRoute>
               <OrderDetail />
+            </ProtectedRoute>
+          }
+        />
+         <Route
+          path="/WorkflowBoard"
+          element={
+            <ProtectedRoute>
+              <WorkflowBoard />
             </ProtectedRoute>
           }
         />

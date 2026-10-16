@@ -62,23 +62,11 @@ export default function Dashboard() {
   async function handleConvert(id: string) {
     setActingId(id)
     try {
-      const updated = await convertOrder(id)
-      setOrders((prev) => prev.map((o) => (o._id === id ? updated : o)))
+      await convertOrder(id)
+      const data = await listOrders()
+      setOrders(data)
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Could not convert this order.')
-    } finally {
-      setActingId(null)
-    }
-  }
-
-  async function handleReject(id: string) {
-    const reason = window.prompt('Reason for rejecting this order?') || 'Not specified'
-    setActingId(id)
-    try {
-      const updated = await rejectOrder(id, reason)
-      setOrders((prev) => prev.map((o) => (o._id === id ? updated : o)))
-    } catch (err) {
-      setError(err instanceof Error ? err.message : 'Could not reject this order.')
     } finally {
       setActingId(null)
     }
@@ -182,16 +170,11 @@ export default function Dashboard() {
                     <button
                       className="btn-mini convert"
                       disabled={actingId === order._id}
-                      onClick={() => handleConvert(order._id)}
+                      onClick={() => {
+                        if (typeof order._id === 'string') handleConvert(order._id)
+                      }}
                     >
                       Convert
-                    </button>
-                    <button
-                      className="btn-mini reject"
-                      disabled={actingId === order._id}
-                      onClick={() => handleReject(order._id)}
-                    >
-                      Reject
                     </button>
                   </>
                 )}
